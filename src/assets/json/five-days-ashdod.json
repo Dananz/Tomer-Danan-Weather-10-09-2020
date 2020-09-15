@@ -1,0 +1,170 @@
+{
+    "Headline": {
+      "EffectiveDate": "2020-09-14T20:00:00+03:00",
+      "EffectiveEpochDate": 1600102800,
+      "Severity": 7,
+      "Text": "Warm Monday night",
+      "Category": "heat",
+      "EndDate": "2020-09-15T08:00:00+03:00",
+      "EndEpochDate": 1600146000,
+      "MobileLink": "http://m.accuweather.com/en/il/ashdod/215613/extended-weather-forecast/215613?unit=c&lang=en-us",
+      "Link": "http://www.accuweather.com/en/il/ashdod/215613/daily-weather-forecast/215613?unit=c&lang=en-us"
+    },
+    "DailyForecasts": [
+      {
+        "Date": "2020-09-13T07:00:00+03:00",
+        "EpochDate": 1599969600,
+        "Temperature": {
+          "Minimum": {
+            "Value": 23.6,
+            "Unit": "C",
+            "UnitType": 17
+          },
+          "Maximum": {
+            "Value": 34.2,
+            "Unit": "C",
+            "UnitType": 17
+          }
+        },
+        "Day": {
+          "Icon": 1,
+          "IconPhrase": "Sunny",
+          "HasPrecipitation": false
+        },
+        "Night": {
+          "Icon": 34,
+          "IconPhrase": "Mostly clear",
+          "HasPrecipitation": false
+        },
+        "Sources": [
+          "AccuWeather"
+        ],
+        "MobileLink": "http://m.accuweather.com/en/il/ashdod/215613/daily-weather-forecast/215613?day=1&unit=c&lang=en-us",
+        "Link": "http://www.accuweather.com/en/il/ashdod/215613/daily-weather-forecast/215613?day=1&unit=c&lang=en-us"
+      },
+      {
+        "Date": "2020-09-14T07:00:00+03:00",
+        "EpochDate": 1600056000,
+        "Temperature": {
+          "Minimum": {
+            "Value": 24.4,
+            "Unit": "C",
+            "UnitType": 17
+          },
+          "Maximum": {
+            "Value": 31.6,
+            "Unit": "C",
+            "UnitType": 17
+          }
+        },
+        "Day": {
+          "Icon": 2,
+          "IconPhrase": "Mostly sunny",
+          "HasPrecipitation": false
+        },
+        "Night": {
+          "Icon": 35,
+          "IconPhrase": "Partly cloudy",
+          "HasPrecipitation": false
+        },
+        "Sources": [
+          "AccuWeather"
+        ],
+        "MobileLink": "http://m.accuweather.com/en/il/ashdod/215613/daily-weather-forecast/215613?day=2&unit=c&lang=en-us",
+        "Link": "http://www.accuweather.com/en/il/ashdod/215613/daily-weather-forecast/215613?day=2&unit=c&lang=en-us"
+      },
+      {
+        "Date": "2020-09-15T07:00:00+03:00",
+        "EpochDate": 1600142400,
+        "Temperature": {
+          "Minimum": {
+            "Value": 24.8,
+            "Unit": "C",
+            "UnitType": 17
+          },
+          "Maximum": {
+            "Value": 31.5,
+            "Unit": "C",
+            "UnitType": 17
+          }
+        },
+        "Day": {
+          "Icon": 1,
+          "IconPhrase": "Sunny",
+          "HasPrecipitation": false
+        },
+        "Night": {
+          "Icon": 35,
+          "IconPhrase": "Partly cloudy",
+          "HasPrecipitation": false
+        },
+        "Sources": [
+          "AccuWeather"
+        ],
+        "MobileLink": "http://m.accuweather.com/en/il/ashdod/215613/daily-weather-forecast/215613?day=3&unit=c&lang=en-us",
+        "Link": "http://www.accuweather.com/en/il/ashdod/215613/daily-weather-forecast/215613?day=3&unit=c&lang=en-us"
+      },
+      {
+        "Date": "2020-09-16T07:00:00+03:00",
+        "EpochDate": 1600228800,
+        "Temperature": {
+          "Minimum": {
+            "Value": 24.7,
+            "Unit": "C",
+            "UnitType": 17
+          },
+          "Maximum": {
+            "Value": 31.4,
+            "Unit": "C",
+            "UnitType": 17
+          }
+        },
+        "Day": {
+          "Icon": 1,
+          "IconPhrase": "Sunny",
+          "HasPrecipitation": false
+        },
+        "Night": {
+          "Icon": 34,
+          "IconPhrase": "Mostly clear",
+          "HasPrecipitation": false
+        },
+        "Sources": [
+          "AccuWeather"
+        ],
+        "MobileLink": "http://m.accuweather.com/en/il/ashdod/215613/daily-weather-forecast/215613?day=4&unit=c&lang=en-us",
+        "Link": "http://www.accuweather.com/en/il/ashdod/215613/daily-weather-forecast/215613?day=4&unit=c&lang=en-us"
+      },
+      {
+        "Date": "2020-09-17T07:00:00+03:00",
+        "EpochDate": 1600315200,
+        "Temperature": {
+          "Minimum": {
+            "Value": 24.5,
+            "Unit": "C",
+            "UnitType": 17
+          },
+          "Maximum": {
+            "Value": 31.9,
+            "Unit": "C",
+            "UnitType": 17
+          }
+        },
+        "Day": {
+          "Icon": 1,
+          "IconPhrase": "Sunny",
+          "HasPrecipitation": false
+        },
+        "Night": {
+          "Icon": 34,
+          "IconPhrase": "Mostly clear",
+          "HasPrecipitation": false
+        },
+        "Sources": [
+          "AccuWeather"
+        ],
+        "MobileLink": "http://m.accuweather.com/en/il/ashdod/215613/daily-weather-forecast/215613?day=5&unit=c&lang=en-us",
+        "Link": "http://www.accuweather.com/en/il/ashdod/215613/daily-weather-forecast/215613?day=5&unit=c&lang=en-us"
+      }
+    ]
+  }

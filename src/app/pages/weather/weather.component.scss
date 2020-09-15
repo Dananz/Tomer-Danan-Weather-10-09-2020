@@ -1,0 +1,33 @@
+
+
+div.search-bar {
+    margin-top: 20px;
+}
+
+div.weather-details {
+    position: relative;
+    margin-top: 20px;
+    app-weather-details {
+        position: relative;
+        overflow: hidden;
+    }
+}
+
+
+app-five-days-forecast {
+    display: block;
+    margin-top: 20px;
+}
+
+
+// Mobile Resposive
+@media (max-width: 767px) {
+    .weather-container {
+        border-radius: 0;
+    }
+
+    app-five-days-forecast {
+        display: block;
+        margin-top: 0;
+    }
+}

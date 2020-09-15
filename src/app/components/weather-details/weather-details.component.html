@@ -1,0 +1,43 @@
+<ng-container *ngIf="weather$ | async as weather">
+
+  <div class="weather-container"
+       [ngClass]="{'day-time': weather.isDayTime}">
+
+
+    <div class="top-row">
+
+      <h1 class="location">{{weather.localizedName}}</h1>
+      <div class="buttons">
+        <app-toggle-celsius-button [weatherKey]="getWeatherKey(weather.key, weather.localizedName)">
+        </app-toggle-celsius-button>
+        <app-favorite-button [weatherKey]="getWeatherKey(weather.key, weather.localizedName)">
+        </app-favorite-button>
+      </div>
+
+    </div>
+
+    <img class="bg-weatherIcon"
+         src="https://www.accuweather.com/images/weathericons/{{weather.weatherIcon}}.svg"
+         draggable="false">
+
+    <ng-container *ngIf="user$ | async as user">
+
+      <div class="conditions">
+        <h1 class="degrees">{{user.isCelsius ? weather.temperature.metric.value : weather.temperature.imperial.value}}°
+        </h1>
+        <h2 class="text">{{weather.weatherText}}</h2>
+      </div>
+
+      <div class="weather-footer">
+        <a [href]="weather.link"
+           target="_blank">
+          Updated to {{weather.localObservationDateTime | date:"dd/MM h:mm a"}}
+        </a>
+      </div>
+
+    </ng-container>
+
+  </div>
+
+
+</ng-container>

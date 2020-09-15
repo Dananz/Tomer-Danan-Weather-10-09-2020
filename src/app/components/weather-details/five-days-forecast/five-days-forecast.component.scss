@@ -1,0 +1,161 @@
+@import "app-colors";
+@import "tags";
+
+* {
+    box-sizing: border-box;
+}
+
+div.no-results {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h2 {
+        margin: 0;
+        font-size: 22px;
+        line-height: 5;
+    }
+}
+
+div.five-forecasts-body {
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+
+    .forecast {
+        position: relative;
+        width: 100%;
+        padding: 26px 24px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        box-shadow: unset;
+        background: unset;
+        align-items: center;
+        transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+        &::after {
+            content: "";
+            position: absolute;
+            display: block;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            width: 100%;
+            @include gradient($pink, $mint);
+        }
+        &.day-time {
+            &::after {
+                @include gradient($red, $light-yellow);
+            }
+        }
+        &:hover {
+            transform: translateY(-5px);
+            transition: 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        margin-right: 30px;
+        &:last-child {
+            margin-right: 0;
+        }
+
+        h1 {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 19px;
+            font-weight: bold;
+        }
+
+        div.min-max-body {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            div {
+                display: flex;
+                img.weather-icon {
+                    margin: 0 5px;
+                    width: 20px;
+                    filter: brightness(-100%);
+                }
+            }
+            div.max {
+                margin-bottom: 8px;
+                h5 {
+                    font-weight: bold;
+                    font-size: 16px;
+                }
+            }
+            div.min {
+                flex-direction: row-reverse;
+                flex-grow: 1;
+                min-width: 40px;
+                justify-content: flex-end;
+                h5 {
+                    color: lighten($black, 30%);
+                    font-weight: normal;
+                    display: inline-block;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+
+// Keep from here
+// Mobile Resposive
+@media (max-width: 767px) {
+    div.five-forecasts-body {
+        div.forecast {
+            position: relative;
+            width: 100%;
+            padding: 16px 24px;
+            align-items: center;
+
+            &::after {
+                content: "";
+                position: absolute;
+                display: block;
+                bottom: 0;
+                left: 0;
+                height: 3px;
+                width: 100%;
+            }
+
+            &:hover {
+                transform: unset;
+                box-shadow: unset;
+            }
+
+            h1 {
+                text-transform: uppercase;
+                letter-spacing: 3px;
+                font-size: 15px;
+                font-weight: bold;
+            }
+
+            div.min-max-body {
+                display: flex;
+                flex-direction: column;
+                margin: 0;
+                div.max {
+                    margin-bottom: 8px;
+                    h5 {
+                        font-weight: bold;
+                        font-size: 15px;
+                    }
+                }
+                div.min {
+                    flex-direction: row-reverse;
+                    flex-grow: 1;
+                    min-width: 40px;
+                    justify-content: flex-end;
+                    h5 {
+                        color: lighten($black, 30%);
+                        font-weight: normal;
+                        display: inline-block;
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+}

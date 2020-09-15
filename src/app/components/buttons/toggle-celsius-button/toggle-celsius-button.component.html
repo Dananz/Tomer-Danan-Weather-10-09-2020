@@ -1,0 +1,9 @@
+<ng-container *ngIf="user$ | async as user">
+
+  <button class="toggle-celsius"
+          (click)="toggleCelsius()"
+          title="Change forecst to {{!user.isCelsius ? 'Celcsius': 'Fahrenheit'}}">
+    <span>{{user.isCelsius ? 'C':'F'}}</span>
+  </button>
+
+</ng-container>

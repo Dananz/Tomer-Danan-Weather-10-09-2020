@@ -1,0 +1,221 @@
+@import "app-colors";
+
+nav.nav-bar {
+    width: 100%;
+    user-select: none;
+    position: relative;
+    height: 60px;
+    background-color: #fafafa;
+
+    box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.02), 0px 1px 18px 0px rgba(0, 0, 0, 0.06);
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        & div {
+            flex: 0 0 20%;
+        }
+    }
+
+    .hamburger-menu {
+        position: absolute;
+        z-index: 5;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        overflow: hidden;
+        transition: background-color 0.6s ease-out;
+        transition-delay: 200ms;
+        cursor: pointer;
+
+        div {
+            border-radius: 50px;
+            background-color: black;
+            height: 2px;
+            width: 25px;
+            margin-bottom: 8px;
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &.open {
+            .one {
+                transform: translateY(10px) rotate(45deg);
+            }
+            .two {
+                transform: scaleX(0);
+                opacity: 0;
+            }
+            .three {
+                transform: translateY(-10px) rotate(-45deg);
+            }
+        }
+    }
+
+    .weather-main {
+        position: relative;
+        text-align: center;
+        outline: none;
+        span {
+            display: inline-block;
+            position: relative;
+            font-size: 15px;
+            font-weight: bolder;
+            letter-spacing: 10px;
+            text-transform: uppercase;
+
+            &::before {
+                transition: 0.2s;
+                content: "";
+                position: absolute;
+                top: -5px;
+                left: -10px;
+                width: 20%;
+                height: 2px;
+                background-color: orange;
+            }
+            &::after {
+                transition: 0.2s;
+                content: "";
+                position: absolute;
+                bottom: -5px;
+                right: -10px;
+                width: 20%;
+                height: 2px;
+                background-color: royalblue;
+            }
+
+            transition: 0.2s;
+            &:hover {
+                cursor: pointer;
+                transform: skew(-15deg);
+                &::after {
+                    right: 10px;
+                }
+                &::before {
+                    left: 10px;
+                }
+                &::after,
+                &::before {
+                    transition: 0.2s;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+div.full-screen-menu {
+    overflow-y: hidden;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: 4;
+    background: white;
+
+    ul.menu-links {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 40vh;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+
+        li {
+            cursor: pointer;
+            position: relative;
+            margin-bottom: 10px;
+            span {
+                font-size: 32px;
+                font-weight: 100;
+                line-height: 2;
+                text-transform: uppercase;
+            }
+            outline: none;
+            &::after {
+                transition: 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                content: "";
+                @include gradient($blue, $mint);
+                position: absolute;
+                height: 1.5px;
+                width: 70%;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            transition: 0.1s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+            &:hover {
+                &::after {
+                    width: 100%;
+                }
+                letter-spacing: 1px;
+            }
+        }
+    }
+
+    div.about-me {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 60vh;
+        text-align: center;
+        h4,
+        h5 {
+            font-weight: 100;
+        }
+        h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        & .links {
+            display: flex;
+        }
+        & .hr-space {
+            margin: 22px 0;
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: rgba(black, 2%);
+        }
+        & .circleButton {
+            background-color: black;
+            color: white;
+            border-radius: 50px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 8px;
+            svg {
+                width: 20px;
+                height: 20px;
+                fill: white;
+            }
+        }
+        & .github-icon {
+            margin: 0 8px;
+            svg {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+}
+
+@keyframes fadeFullScreenMenu {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,25 @@
+[
+    {
+        "LocalObservationDateTime": "2020-09-11T21:15:00+03:00",
+        "EpochTime": 1599848100,
+        "WeatherText": "Clear",
+        "WeatherIcon": 33,
+        "HasPrecipitation": false,
+        "PrecipitationType": null,
+        "IsDayTime": false,
+        "Temperature": {
+            "Metric": {
+                "Value": 30.6,
+                "Unit": "C",
+                "UnitType": 17
+            },
+            "Imperial": {
+                "Value": 87,
+                "Unit": "F",
+                "UnitType": 18
+            }
+        },
+        "MobileLink": "http://m.accuweather.com/en/il/ashdod/215613/current-weather/215613?lang=en-us",
+        "Link": "http://www.accuweather.com/en/il/ashdod/215613/current-weather/215613?lang=en-us"
+    }
+]

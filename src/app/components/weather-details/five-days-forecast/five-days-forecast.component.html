@@ -1,0 +1,30 @@
+<div class="five-forecasts-body"
+     *ngIf="weather$ | async as weather">
+    <ng-container *ngFor="let day of weather.fiveDaysForecast">
+        <div class="forecast"
+             [ngClass]="{'day-time': weather.isDayTime}">
+            <h1>{{day.date | date:'EEEE'}}</h1>
+
+            <div class="min-max-body">
+                <div class="max">
+                    <img class="weather-icon"
+                         src="https://www.accuweather.com/images/weathericons/{{day.dayIcon}}.svg"
+                         draggable="false">
+                    <h5>{{day.temperature.max.value}}°</h5>
+                </div>
+                <div class="min">
+                    <h5>{{day.temperature.min.value }}°</h5>
+                    <img class="weather-icon"
+                         src="https://www.accuweather.com/images/weathericons/{{day.nightIcon}}.svg"
+                         draggable="false">
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="weather?.fiveDaysForecast?.length < 1">
+        <div class="no-results">
+            <h2>No five days forecast found</h2>
+        </div>
+    </ng-container>
+</div>

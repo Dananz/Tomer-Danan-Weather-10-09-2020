@@ -1,0 +1,41 @@
+<header>
+  <div class="spacer"></div>
+  <h1>Favorites List</h1>
+  <app-toggle-celsius-button></app-toggle-celsius-button>
+</header>
+
+<ng-container *ngIf="favoritesFetchedWeathers as favoritesWeathers">
+  <!-- When no favorites found -->
+  <ng-container *ngIf="favoritesWeathers?.length < 1">
+    <div class="no-favorites">
+      <h1>No Favorites Yet</h1>
+    </div>
+  </ng-container>
+
+  <div class="grid-container">
+    <ng-container *ngFor="let weather of favoritesWeathers">
+
+      <div class="item-body"
+           (click)="goToWeather(getWeatherKey(weather.key, weather.localizedName))"
+           title="Go to {{weather.localizedName}} weather">
+        <div class="name">
+          <h2>{{weather.localizedName}}</h2>
+        </div>
+        <ng-container *ngIf="user$ | async as user">
+          <div class="info">
+            <span
+                  class="temp">{{user.isCelsius ? weather.temperature.metric.value : weather.temperature.imperial.value}}°</span>
+            <span>{{weather.weatherText}}</span>
+          </div>
+        </ng-container>
+
+        <img class="bg-weatherIcon"
+             src="https://www.accuweather.com/images/weathericons/{{weather.weatherIcon}}.svg"
+             draggable="false">
+
+      </div>
+
+    </ng-container>
+  </div>
+
+</ng-container>

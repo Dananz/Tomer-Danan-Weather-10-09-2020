@@ -1,0 +1,116 @@
+@import "app-colors";
+@import "tags";
+
+header {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 16px;
+    div, app-toggle-celsius-button {
+        flex: 0 0 10%;
+    }
+    h1 {
+        user-select: none;
+        margin: auto;
+        font-size: 22px;
+        font-weight: 100;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+    }
+}
+div.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+
+    .item-body {
+        position: relative;
+        @include gradient($blue, $cyan);
+        color: white;
+        border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        padding: 26px 0;
+        box-sizing: border-box;
+        transition: 0.2s ease-in;
+
+        &:hover {
+            cursor: pointer;
+            box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.12), 0px 1px 18px 0px rgba(0, 0, 0, 0.06);
+        }
+
+        h2,
+        span {
+            display: block;
+            text-align: center;
+        }
+        .name {
+            display: flex;
+            h2 {
+                margin: auto 0;
+                font-size: 36px;
+                line-height: 1.2;
+                font-weight: 100;
+            }
+            flex-basis: 100px;
+        }
+        .info {
+            span {
+                font-size: 20px;
+                &.temp {
+                    font-size: 30px;
+                    font-weight: normal;
+                }
+                line-height: 1.4;
+                font-weight: lighter;
+            }
+        }
+
+        img.bg-weatherIcon {
+            position: absolute;
+            bottom: 5px;
+            left: 5px;
+            filter: brightness(1000%);
+            opacity: 0.2;
+            height: 40%;
+        }
+    }
+}
+.no-favorites {
+    display: flex;
+    h1 {
+        margin: auto;
+    }
+}
+
+// Mobile Resposive
+@media (max-width: 767px) {
+    div.spacer {
+        height: 60px;
+    }
+    div.grid-container {
+        margin: 0 16px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 16px;
+
+        .item-body {
+            .name {
+                h2 {
+                    font-size: 22px;
+                }
+            }
+            .info {
+                span {
+                    &.temp {
+                        font-size: 20px;
+                    }
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
