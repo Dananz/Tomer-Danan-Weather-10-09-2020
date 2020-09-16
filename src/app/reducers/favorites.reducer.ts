@@ -1,6 +1,7 @@
 import { WeatherKey } from '../models/weather-interfaces';
 import * as FavoritesActions from '../actions/favorites.action';
 
+// initialState Updated to Tel Aviv if there's nothing on storage
 const initialState: WeatherKey[] =
     JSON.parse(localStorage.getItem('favoritesStore')) || [<WeatherKey>{
         key: "215854",

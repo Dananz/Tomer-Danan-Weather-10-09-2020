@@ -1,3 +1,5 @@
+import { UserService } from 'src/app/services/user.service';
+import { ThemeService } from './../../../services/theme.service';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { fadeingInOutAnimation } from './../../../animations';
 
@@ -16,4 +18,9 @@ export class NavbarComponent {
     { route: 'favorites', text: "Favorites" }
   ]
 
+  constructor(private userService: UserService) {
+
+  }
+
+  toggleDarkMode = () => this.userService.toggleDarkModeAtStore()
 }

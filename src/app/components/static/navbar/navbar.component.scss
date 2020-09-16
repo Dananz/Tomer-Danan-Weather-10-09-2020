@@ -5,8 +5,8 @@ nav.nav-bar {
     user-select: none;
     position: relative;
     height: 60px;
-    background-color: #fafafa;
-
+    background-color: var(--nav-bar-color);
+    transition: color 0.15s ease-in, background-color 0.3s ease-in;
     box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.02), 0px 1px 18px 0px rgba(0, 0, 0, 0.06);
 
     .container {
@@ -32,7 +32,7 @@ nav.nav-bar {
 
         div {
             border-radius: 50px;
-            background-color: black;
+            background-color: var(--text-color);
             height: 2px;
             width: 25px;
             margin-bottom: 8px;
@@ -88,8 +88,6 @@ nav.nav-bar {
                 height: 2px;
                 background-color: royalblue;
             }
-
-            transition: 0.2s;
             &:hover {
                 cursor: pointer;
                 transform: skew(-15deg);
@@ -109,20 +107,29 @@ nav.nav-bar {
     }
 }
 
+div.darkmode-toggle {
+    position: absolute;
+    z-index: 5;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    overflow: hidden;
+}
+
 div.full-screen-menu {
     overflow-y: hidden;
     position: fixed;
     height: 100vh;
     width: 100vw;
     z-index: 4;
-    background: white;
+    background: var(--background-color);
 
     ul.menu-links {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 40vh;
+        height: 30vh;
         margin: 0;
         padding: 0;
         list-style-type: none;

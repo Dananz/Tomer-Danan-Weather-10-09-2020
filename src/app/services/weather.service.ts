@@ -3,7 +3,7 @@ import { Weather, WeatherKey, FutureForecast } from './../models/weather-interfa
 import { AccuWeatherApiService } from './accuWeatherApi.service';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { AppState } from '../app.state';
 import * as WeatherActions from './../actions/weather.action'
@@ -19,22 +19,30 @@ export class WeatherService {
     private store: Store<AppState>
   ) { }
 
-  public getLocationWeather(coords: []): Observable<WeatherKey> {
+  /**
+   * Uses Tel Aviv `key` && `localizedName` to set default weather to store.
+   */
+  public setDefaultWeatherToStore(): void {
+    this.setWeatherToStore({ key: "215854", localizedName: "Tel Aviv" });
+  }
+
+  public getCoordsLocationWeather(coords: []): Observable<WeatherKey> {
     return this.accuWeatherService.getLocationWeather(coords)
       .pipe(
-        map(result => <WeatherKey>{
+        map(result => result && <WeatherKey>{
           key: result['Key'],
           localizedName: result['LocalizedName'],
         }))
   }
 
   public setWeatherToStore(weatherKey: WeatherKey): void {
-    this.getWeather(weatherKey).subscribe(weatherResponse => {
-      this.store.dispatch(new WeatherActions.SetWeather(weatherResponse))
-    })
-    this.getFiveForecasts(weatherKey).subscribe(weatherForecast => {
-      this.store.dispatch(new WeatherActions.SetFiveDaysForecast(weatherForecast))
-    })
+    this.getWeather(weatherKey)
+      .subscribe(weatherResponse => {
+        this.store.dispatch(new WeatherActions.SetWeather(<Weather>weatherResponse))
+
+        this.getFiveForecasts(weatherKey).subscribe(weatherForecast =>
+          this.store.dispatch(new WeatherActions.SetFiveDaysForecast(weatherForecast)))
+      })
   }
 
   public setFiveDaysForecastToStore(weatherKey: WeatherKey) {
@@ -44,13 +52,13 @@ export class WeatherService {
   }
 
   public getWeather(key: WeatherKey): Observable<Weather> {
-    return this.accuWeatherService.getCurrentWeather(key.key)
+    return this.accuWeatherService.getCurrentWeather(key?.key)
       .pipe(
         map(result => result[0]),
         map((result: any) => {
           const weather: Weather = {
-            key: result['Key'] || key.key,
-            localizedName: result['LocalizedName'] || key.localizedName,
+            key: result['Key'] || key?.key,
+            localizedName: result['LocalizedName'] || key?.localizedName,
             isDayTime: result['IsDayTime'],
             localObservationDateTime: result['LocalObservationDateTime'],
             link: result['Link'],
@@ -72,11 +80,11 @@ export class WeatherService {
   }
 
   public getFiveForecasts(key: WeatherKey): Observable<FutureForecast[]> {
-    return this.accuWeatherService.getFiveDailyForecast(key.key)
+    return this.accuWeatherService.getFiveDailyForecast(key?.key)
       .pipe(
         map(result => result['DailyForecasts']),
         map((result: any[]) => {
-          let forecast: FutureForecast[] = []
+          const forecast: FutureForecast[] = []
           for (const resItem of result) {
             forecast.push(<FutureForecast>{
               date: resItem['Date'],

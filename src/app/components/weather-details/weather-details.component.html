@@ -23,7 +23,8 @@
     <ng-container *ngIf="user$ | async as user">
 
       <div class="conditions">
-        <h1 class="degrees">{{user.isCelsius ? weather.temperature.metric.value : weather.temperature.imperial.value}}°
+        <h1 class="degrees">
+          {{user.isCelsius ? (weather.temperature.metric.value | round) : weather.temperature.imperial.value}}°
         </h1>
         <h2 class="text">{{weather.weatherText}}</h2>
       </div>

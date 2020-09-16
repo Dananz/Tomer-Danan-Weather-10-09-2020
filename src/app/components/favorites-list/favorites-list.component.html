@@ -1,10 +1,9 @@
-<header>
-  <div class="spacer"></div>
-  <h1>Favorites List</h1>
-  <app-toggle-celsius-button></app-toggle-celsius-button>
-</header>
-
 <ng-container *ngIf="favoritesFetchedWeathers as favoritesWeathers">
+  <header *ngIf="favoritesWeathers?.length > 0">
+    <div class="spacer"></div>
+    <h1>Favorites List</h1>
+    <app-toggle-celsius-button></app-toggle-celsius-button>
+  </header>
   <!-- When no favorites found -->
   <ng-container *ngIf="favoritesWeathers?.length < 1">
     <div class="no-favorites">
@@ -16,6 +15,7 @@
     <ng-container *ngFor="let weather of favoritesWeathers">
 
       <div class="item-body"
+           [ngClass]="{'day-time': weather.isDayTime}"
            (click)="goToWeather(getWeatherKey(weather.key, weather.localizedName))"
            title="Go to {{weather.localizedName}} weather">
         <div class="name">
@@ -24,7 +24,7 @@
         <ng-container *ngIf="user$ | async as user">
           <div class="info">
             <span
-                  class="temp">{{user.isCelsius ? weather.temperature.metric.value : weather.temperature.imperial.value}}°</span>
+                  class="temp">{{user.isCelsius ? (weather.temperature.metric.value | round) : weather.temperature.imperial.value}}°</span>
             <span>{{weather.weatherText}}</span>
           </div>
         </ng-container>

@@ -1,16 +1,17 @@
 @import "app-colors";
 
 button.add-to-favorits {
+    -webkit-appearance: none;
     border: 0;
     background: white;
-
-    box-shadow: 0 8px 5px 5px rgba(0, 0, 0, 0.04), 0 1px 10px 0 rgba(0, 0, 0, 0.06),
-        0 2px 4px -1px rgba(0, 0, 0, 0.2);
-    svg {
-        height: 100%;
-        width: 80%;
-        fill: $red;
+    box-shadow: 0 8px 5px 5px rgba(0, 0, 0, 0.04), 0 1px 10px 0 rgba(0, 0, 0, 0.06), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    img {
+        height: 22px;
+        width: 22px;
     }
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: white;
     font-size: 22px;
     height: 40px;
@@ -31,8 +32,6 @@ button.add-to-favorits {
     }
     &.active {
         background: $red;
-        svg {
-            fill: $white;
-        }
+
     }
 }

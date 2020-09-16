@@ -1,4 +1,16 @@
-
+@import "app-colors";
+.out-of-api-calls {
+    width: 100%;
+    display: grid;
+    place-items: center;
+    background-color: $mint;
+    span {
+        color: $white;
+        padding: 20px;
+    }
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
 
 div.search-bar {
     margin-top: 20px;
@@ -13,12 +25,10 @@ div.weather-details {
     }
 }
 
-
 app-five-days-forecast {
     display: block;
     margin-top: 20px;
 }
-
 
 // Mobile Resposive
 @media (max-width: 767px) {
@@ -29,5 +39,8 @@ app-five-days-forecast {
     app-five-days-forecast {
         display: block;
         margin-top: 0;
+    }
+    .out-of-api-calls {
+        border-radius: 0;
     }
 }

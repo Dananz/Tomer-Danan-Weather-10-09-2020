@@ -1,3 +1,25 @@
+<nav class="nav-bar">
+  <div class="darkmode-toggle"
+       (click)="toggleDarkMode()">
+       <span class="material-icons">
+        brightness_4
+        </span>
+  </div>
+  <div class="container">
+    <div class="weather-main"
+         [routerLink]="['']">
+      <span>Weather</span>
+    </div>
+  </div>
+  <div class="hamburger-menu"
+       [ngClass]="{'open': menuOpen}"
+       (click)="menuOpen = !menuOpen">
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+  </div>
+</nav>
+
 <div class="full-screen-menu"
      [@fadeInOut]
      *ngIf="menuOpen">
@@ -62,19 +84,3 @@
     </div>
   </div>
 </div>
-
-<nav class="nav-bar">
-  <div class="container">
-    <div class="weather-main"
-         [routerLink]="['']">
-      <span>Weather</span>
-    </div>
-  </div>
-  <div class="hamburger-menu"
-       [ngClass]="{'open': menuOpen}"
-       (click)="menuOpen = !menuOpen">
-    <div class="one"></div>
-    <div class="two"></div>
-    <div class="three"></div>
-  </div>
-</nav>

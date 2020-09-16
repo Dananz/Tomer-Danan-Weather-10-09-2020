@@ -5,16 +5,20 @@ $grey: #e9e9e9;
 $white: #fff;
 $black: #000;
 
+$dark-background-color: rgb(26, 26, 26);
+$svg-black: brightness(-100%);
+$svg-white: brightness(100%);
+
 // Static colors
-$red: #ED1c24;
-$yellow: #FCEE21;
-$mint: #00A8C5;
-$light-yellow: #FFFF7E;
+$red: #ed1c24;
+$yellow: #fcee21;
+$mint: #00a8c5;
+$light-yellow: #ffff7e;
 $green: #009245;
-$purple: #662D8C;
-$pink: #ED1E79;
+$purple: #662d8c;
+$pink: #ed1e79;
 $blue: #2e3192;
-$cyan: #1BFFFF;
+$cyan: #1bffff;
 
 // Gets two colors and return a gradient bg
 @mixin gradient($color1, $color2) {
@@ -23,3 +27,38 @@ $cyan: #1BFFFF;
   background: -webkit-linear-gradient(45deg, $color1 0%, $color2 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(45deg, $color1 0%, $color2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
+
+$colors: (
+  --background-color: (
+    $white,
+    $dark-background-color,
+  ),
+  --nav-bar-color: (
+    #fafafa,
+    lighten($dark-background-color, 14%),
+  ),
+  --searchbar-color: (
+    #fafafa,
+    lighten($dark-background-color, 20%),
+  ),
+  --searchbar-color-hover: (
+    darken(#fafafa, 5%),
+    lighten($dark-background-color, 25%),
+  ),
+  --searchbar-border-color: (
+    #dfe1e5,
+    darken(#dfe1e5, 40%),
+  ),
+  --text-color: (
+    $black,
+    $white,
+  ),
+  --muted-text-color: (
+    lighten($black, 50%),
+    darken($white, 50%),
+  ),
+  --svg-filter-color: (
+    $svg-black,
+    $svg-white,
+  ),
+);

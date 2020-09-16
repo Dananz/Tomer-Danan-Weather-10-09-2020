@@ -10,10 +10,10 @@
                     <img class="weather-icon"
                          src="https://www.accuweather.com/images/weathericons/{{day.dayIcon}}.svg"
                          draggable="false">
-                    <h5>{{day.temperature.max.value}}°</h5>
+                    <h5>{{day.temperature.max.value | round }}°</h5>
                 </div>
                 <div class="min">
-                    <h5>{{day.temperature.min.value }}°</h5>
+                    <h5>{{day.temperature.min.value | round }}°</h5>
                     <img class="weather-icon"
                          src="https://www.accuweather.com/images/weathericons/{{day.nightIcon}}.svg"
                          draggable="false">

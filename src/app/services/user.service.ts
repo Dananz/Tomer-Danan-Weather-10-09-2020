@@ -6,7 +6,6 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../app.state';
 import * as UserActions from '../actions/user.action';
-import * as WeatherActions from '../actions/weather.action';
 
 @Injectable({
   providedIn: 'root'
@@ -19,9 +18,18 @@ export class UserService {
     this.userStore = this.store.select('user')
   }
 
-  public toggleCelsius = () => {
+  public toggleCelsius() {
     this.store.dispatch(new UserActions.ToggleCelsius())
     this.userStore.subscribe(store => this.updateLocalStorage(store))
+  }
+
+  public toggleDarkModeAtStore() {
+    this.store.dispatch(new UserActions.ToggleDarkMode())
+    this.userStore.subscribe(store => this.updateLocalStorage(store))
+  }
+
+  public setOutOfApiCalls() {
+    this.store.dispatch(new UserActions.SetOutOfApiCalls())
   }
 
   updateLocalStorage(store) {

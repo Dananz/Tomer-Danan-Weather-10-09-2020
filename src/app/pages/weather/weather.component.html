@@ -1,9 +1,15 @@
-<div class="container">
-    <div class="search-bar">
-        <app-search-bar (onResultSelect)="selectWeather($event)"></app-search-bar>
+<ng-container *ngIf="user$ | async as user">
+    <div class="container">
+        <div class="out-of-api-calls"
+             *ngIf="user.isOutOfApiCalls">
+            <span>We ran out of api calls. Displaying json data.</span>
+        </div>
+        <div class="search-bar">
+            <app-search-bar (onResultSelect)="selectWeather($event)"></app-search-bar>
+        </div>
+        <div class="weather-details">
+            <app-weather-details [weather]="weather$"></app-weather-details>
+            <app-five-days-forecast [weather]="weather$"></app-five-days-forecast>
+        </div>
     </div>
-    <div class="weather-details">
-        <app-weather-details [weather]="weather$"></app-weather-details>
-        <app-five-days-forecast [weather]="weather$"></app-five-days-forecast>
-    </div>
-</div>
+</ng-container>

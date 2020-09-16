@@ -1,1 +1,15 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~ngx-toastr/toastr-bs4-alert";
+
 @import "tags";
+@import "app-colors";
+@import "theme";
+
+body {
+    background-color: var(--background-color) !important;
+    color: var(--text-color) !important;
+    transition: color 0.15s ease-in, background-color .3s ease-in;
+
+}

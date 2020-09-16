@@ -1,5 +1,7 @@
+import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
+import { RoundPipe } from './pipes/round.pipe';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { StoreModule } from '@ngrx/store';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
@@ -18,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { reducer as UserReducer } from './reducers/user.reducer';
 import { reducer as WeatherReducer } from './reducers/weather.reducer';
 import { reducer as FavoritesReducer } from './reducers/favorites.reducer';
+import { ToastrModule } from 'ngx-toastr';
 
 const components = [
   AppComponent,
@@ -36,11 +39,18 @@ const directives = [
   ClickOutsideDirective
 ]
 
+const pipes = [
+  RoundPipe
+]
+
 const modules = [
   BrowserModule,
   AppRoutingModule,
   BrowserAnimationsModule,
   HttpClientModule,
+  ToastrModule.forRoot({
+    preventDuplicates: true
+  }), // ToastrModule added
   StoreModule.forRoot({
     user: UserReducer,
     weather: WeatherReducer,
@@ -49,9 +59,15 @@ const modules = [
 ]
 
 @NgModule({
-  declarations: [components, directives],
+  declarations: [components, directives, pipes],
   imports: [modules],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

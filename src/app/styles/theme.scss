@@ -1,0 +1,17 @@
+@import "app-colors";
+
+.animate-colors-transition * {
+    transition: color 2s, background 2s;
+}
+
+.theme-light {
+    @each $name, $color in $colors {
+        #{$name}: nth($color, 1);
+    }
+}
+
+.theme-dark {
+    @each $name, $color in $colors {
+        #{$name}: nth($color, 2);
+    }
+}

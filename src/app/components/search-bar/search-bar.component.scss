@@ -1,4 +1,5 @@
 @import "app-colors";
+
 .relative-div {
     position: relative;
     height: 44px;
@@ -21,17 +22,14 @@ div.search-bar-body {
     position: absolute;
     display: block;
     width: 100%;
-    border-bottom: 1.5px solid rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     box-sizing: border-box;
     box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.02), 0px 10px 18px 0px rgba(0, 0, 0, 0.06);
-
     transition: max-height 0.3s ease-out;
     height: auto;
-
-    background: #fff;
-
-    border: 1px solid #dfe1e5;
+    background: var(--searchbar-color);
+    border: 1px solid var(--searchbar-border-color);
+    transition: color 0.15s ease-in, background-color .3s ease-in, border .3s ease-in;
     box-shadow: none;
     border-radius: 24px;
     z-index: 3;
@@ -55,7 +53,9 @@ div.search-bar-body {
         input.search-bar-input {
             width: 100%;
             border: 0;
-            background-color: none;
+            appearance: none;
+            background-color: unset;
+            color: var(--text-color);
             outline: none;
             font-size: 16px;
             font-weight: 100 !important;
@@ -66,8 +66,9 @@ div.search-bar-body {
     .autocomplete-body {
         transition: max-height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         height: auto;
-        background-color: white;
+        background: var(--searchbar-color);
         border-top: 1px solid rgba(0, 0, 0, 0.1);
+        transition: color 0.15s ease-in, background-color .3s ease-in;
         overflow-y: auto;
         position: relative;
 
@@ -82,7 +83,6 @@ div.search-bar-body {
             @include gradient($white, $cyan);
             background-size: 200% 200%;
             animation: moovingGradient 2s ease infinite;
-            
             @keyframes moovingGradient {
                 0% {
                     background-position: 0% 50%;
@@ -96,8 +96,6 @@ div.search-bar-body {
             }
         }
 
-
-
         &.collapsed {
             border-top: none;
             transition: max-height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -110,7 +108,7 @@ div.search-bar-body {
             max-height: 600px;
 
             li.result {
-                border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
                 position: relative;
                 padding: 28px 0;
                 display: flex;
@@ -141,7 +139,7 @@ div.search-bar-body {
                 transition: 0.2s ease-in;
                 &:hover {
                     cursor: pointer;
-                    background-color: darken(white, 2%);
+                    background-color: var(--searchbar-color-hover);
                     box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.02), 0px 10px 18px 0px rgba(0, 0, 0, 0.06);
 
                     .result-details {

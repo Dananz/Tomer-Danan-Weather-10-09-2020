@@ -22,16 +22,18 @@ div.five-forecasts-body {
     user-select: none;
 
     .forecast {
+        background-color: var(--background-color) !important;
         position: relative;
         width: 100%;
         padding: 26px 24px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        box-shadow: unset;
-        background: unset;
+        box-sizing: border-box;
         align-items: center;
-        transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+        transition: color 0.15s ease-in, background-color .3s ease-in;
+        padding-top: 21px;
+        margin-bottom: 5px;
         &::after {
             content: "";
             position: absolute;
@@ -65,6 +67,7 @@ div.five-forecasts-body {
         }
 
         div.min-max-body {
+            height: 100%;
             margin-top: 10px;
             display: flex;
             flex-direction: column;
@@ -74,7 +77,8 @@ div.five-forecasts-body {
                 img.weather-icon {
                     margin: 0 5px;
                     width: 20px;
-                    filter: brightness(-100%);
+                    height: 20px;
+                    filter: var(--svg-filter-color);
                 }
             }
             div.max {
@@ -90,7 +94,7 @@ div.five-forecasts-body {
                 min-width: 40px;
                 justify-content: flex-end;
                 h5 {
-                    color: lighten($black, 30%);
+                    color: var(--muted-text-color);
                     font-weight: normal;
                     display: inline-block;
                     font-size: 16px;
@@ -107,6 +111,7 @@ div.five-forecasts-body {
         div.forecast {
             position: relative;
             width: 100%;
+            height: 80px;
             padding: 16px 24px;
             align-items: center;
 
@@ -136,8 +141,8 @@ div.five-forecasts-body {
                 display: flex;
                 flex-direction: column;
                 margin: 0;
+                max-height: fit-content;
                 div.max {
-                    margin-bottom: 8px;
                     h5 {
                         font-weight: bold;
                         font-size: 15px;
